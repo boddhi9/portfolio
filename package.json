@@ -2,10 +2,9 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbo",
-    "build": "npm run setup && next build",
+    "build": "npm run next build",
     "build-only": "next build",
-    "start": "next start",
-    "setup": "node ./setup.mjs"
+    "start": "next start"
   },
   "dependencies": {
     "@tailwindcss/typography": "^0.5.13",
