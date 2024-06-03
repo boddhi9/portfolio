@@ -5,5 +5,5 @@ export default function NotFound() {
         Oh no! This page doesn&apos;t exist.
       </h1>
     </section>
-  );
+  )
 }

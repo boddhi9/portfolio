@@ -7,5 +7,5 @@ export default function robots() {
     ],
     sitemap: 'https://krumgeorgiev.com/sitemap.xml',
     host: 'https://krumgeorgiev.com',
-  };
+  }
 }
