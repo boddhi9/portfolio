@@ -48,7 +48,6 @@ body {
   color: #f5f4f1;
   background-color: #1D1C1B;
   -webkit-font-smoothing: antialiased;
-  animation: fadein 1s forwards;
   height: 100vh;
 }
 
