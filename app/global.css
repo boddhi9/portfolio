@@ -35,13 +35,64 @@ html {
   min-width: 360px;
 }
 
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  line-height: 20px;
+  font-family: "Chivo Mono", monospace;
+  font-weight: 300;
+  font-optical-sizing: auto;
+  font-style: normal;
+  color: #f5f4f1;
+  background-color: #1D1C1B;
+  -webkit-font-smoothing: antialiased;
+  animation: fadein 1s forwards;
+  height: 100vh;
+}
+
+ol, ul, menu {
+  list-style: disc;
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  color: #f5f4f1;
+  }
+a:hover {
+  background-color: rgba(255, 213, 0, 1);
+  color: rgba(0,0,0,0.8);
+}
+.container {
+  max-width: 700px;
+  padding: 16px 40px;
+}
+h1, h2 {
+  font-size: 14px;
+  line-height: 20px;
+  padding: 16px 0;
+  font-weight: 400;
+}
+ul li {
+  margin-left: 16px;
+}
+* {
+  margin: 0;
+  padding: 0;
+}
+@keyframes fadein {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
 .prose .anchor {
   @apply absolute invisible no-underline;
 
   margin-left: -1em;
   padding-right: 0.5em;
   width: 80%;
-  max-width: 700px;
   cursor: pointer;
 }
 
@@ -77,7 +128,7 @@ html {
 }
 
 .prose code span {
-  @apply font-medium;
+  @apply font-chivo;
 }
 
 .prose img {
@@ -88,11 +139,11 @@ html {
 .prose h2,
 h3,
 h4 {
-  @apply font-medium tracking-tighter !important;
+  @apply font-chivo tracking-tighter !important;
 }
 
 .prose strong {
-  @apply font-medium;
+  @apply font-chivo;
 }
 
 .prose > :first-child {

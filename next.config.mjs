@@ -13,9 +13,9 @@ const nextConfig = {
         source: '/(.*)',
         headers: securityHeaders,
       },
-    ];
+    ]
   },
-};
+}
 
 const ContentSecurityPolicy = `
     default-src 'self' vercel.live;
@@ -26,7 +26,7 @@ const ContentSecurityPolicy = `
     connect-src *;
     font-src 'self' data:;
     frame-src 'self' *.codesandbox.io vercel.live;
-`;
+`
 
 const securityHeaders = [
   {
@@ -57,6 +57,6 @@ const securityHeaders = [
     key: 'Permissions-Policy',
     value: 'camera=(), microphone=(), geolocation=()',
   },
-];
+]
 
-export default nextConfig;
+export default nextConfig

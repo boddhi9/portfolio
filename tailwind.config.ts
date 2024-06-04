@@ -1,13 +1,12 @@
-import type { Config } from 'tailwindcss';
-import typography from '@tailwindcss/typography';
+import typography from '@tailwindcss/typography'
+import type { Config } from 'tailwindcss'
 
 export default {
   content: ['./app/**/*.{ts,tsx}', './content/**/*.mdx', './public/**/*.svg'],
   theme: {
     extend: {
       fontFamily: {
-        sans: ['var(--font-geist-sans)'],
-        mono: ['var(--font-geist-mono)'],
+        chivo: ['var(--font-chivo)'],
       },
       typography: {
         quoteless: {
@@ -23,4 +22,4 @@ export default {
     hoverOnlyWhenSupported: true,
   },
   plugins: [typography],
-} satisfies Config;
+} satisfies Config
