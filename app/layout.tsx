@@ -1,3 +1,4 @@
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Metadata } from 'next'
 import './global.css'
 
@@ -39,7 +40,10 @@ export default function RootLayout({
     >
       <head />
       <body className="antialiased">
-        <main className="font-chivo">{children}</main>
+        <main className="font-chivo">
+          {children}
+          <SpeedInsights />
+        </main>
       </body>
     </html>
   )

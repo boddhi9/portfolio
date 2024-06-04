@@ -11,6 +11,7 @@
     "@tailwindcss/typography": "^0.5.13",
     "@types/react": "npm:types-react@rc",
     "@types/react-dom": "npm:types-react-dom@rc",
+    "@vercel/speed-insights": "^1.0.11",
     "autoprefixer": "^10.4.19",
     "next": "^15.0.0-canary.7",
     "postcss": "^8.4.38",
