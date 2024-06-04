@@ -1,6 +1,31 @@
+import { Metadata } from 'next'
 import './global.css'
 
-const cx = (...classes: string[]) => classes.filter(Boolean).join(' ')
+export const metadata: Metadata = {
+  metadataBase: new URL('https://krumgeorgiev.com'),
+  title: {
+    default: 'Krum Georgiev',
+    template: '%s | Krum Georgiev',
+  },
+  description: 'Developer.',
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
+  twitter: {
+    title: 'Krum Georgiev',
+    card: 'summary_large_image',
+  },
+}
+
+const cx = (...classes) => classes.filter(Boolean).join(' ')
 
 export default function RootLayout({
   children,
