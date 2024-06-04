@@ -1,14 +1,13 @@
-import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Metadata } from 'next'
 import './global.css'
 
 export const metadata: Metadata = {
   metadataBase: new URL('https://krumgeorgiev.com'),
   title: {
-    default: 'Krum Georgiev',
+    default: 'Krum Georgiev - Developer and creator of things',
     template: '%s | Krum Georgiev',
   },
-  description: 'Developer.',
+  description: 'Developer and creator of things.',
   robots: {
     index: true,
     follow: true,
@@ -40,10 +39,7 @@ export default function RootLayout({
     >
       <head />
       <body className="antialiased">
-        <main className="font-chivo">
-          {children}
-          <SpeedInsights />
-        </main>
+        <main className="font-chivo">{children}</main>
       </body>
     </html>
   )
