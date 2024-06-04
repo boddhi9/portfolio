@@ -16,6 +16,7 @@
     "postcss": "^8.4.38",
     "react": "^19.0.0-rc-6d3110b4d9-20240531",
     "react-dom": "^19.0.0-rc-6d3110b4d9-20240531",
+    "react-terminal": "^1.4.4",
     "tailwindcss": "^3.4.3",
     "typescript": "5.4.5"
   },
