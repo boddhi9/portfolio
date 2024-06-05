@@ -10,14 +10,14 @@ import CommandHandler from './components/CommandHandler'
 
 export default function Page() {
   const [isLoading, setIsLoading] = useState(true)
-  const [, setShowWelcomeMessage] = useState(true)
+  const [showWelcomeMessage, setShowWelcomeMessage] = useState(true)
   const isMobile = useMediaQuery('(max-width: 768px)')
 
   useEffect(() => {
     setIsLoading(false)
   }, [])
 
-  const welcomeMessage = (
+  const welcomeMessage = showWelcomeMessage && (
     <section className="container mx-auto px-4">
       <header>
         <h1 className="text-md font-bold">Krum Georgiev</h1>
