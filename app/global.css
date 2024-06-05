@@ -120,7 +120,7 @@ ul li {
 #terminalEditor {
   font-size: 14px;
   height: 400px;
-  width: 100%;
+  width: 700px;
   max-width: 700px;
   overflow: auto;
 }

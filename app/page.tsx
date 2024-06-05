@@ -24,10 +24,19 @@ export default function Page() {
     <section className="container mx-auto px-4">
       <header>
         <h1 className="text-md font-bold">Krum Georgiev</h1>
-        <p className="text-md">
-          Tech enthusiast | Staff Engineer at Vercel | TC39 member | Stuck in
-          Vim
-        </p>
+        {isMobile ? (
+          <ul className="list-disc pl-5">
+            <li className="text-md">Tech enthusiast</li>
+            <li className="text-md">Staff Engineer at Vercel</li>
+            <li className="text-md">TC39 member</li>
+            <li className="text-md">Stuck in Vim</li>
+          </ul>
+        ) : (
+          <p className="text-md">
+            Tech enthusiast | Staff Engineer at Vercel | TC39 member | Stuck in
+            Vim
+          </p>
+        )}
       </header>
       <section>
         <h2 className="text-md font-semibold">Previously:</h2>
@@ -59,7 +68,7 @@ export default function Page() {
               target="_blank"
               rel="noopener noreferrer"
             >
-              Download CV
+              Resume
             </a>
           </li>
         </ul>
