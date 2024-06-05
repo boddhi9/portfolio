@@ -63,12 +63,10 @@ ol, ul, menu {
 
 a {
   color: #f5f4f1 !important;
-  border-bottom: 1px solid #f5f4f1;
   }
 a:hover {
   background-color: rgba(255, 213, 0, 1);
   color: rgba(0,0,0,0.8) !important;
-  border-bottom: 1px solid rgba(255, 213, 0, 1);
 }
 .container {
   max-width: 700px;
