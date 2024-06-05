@@ -99,14 +99,16 @@ export default function Page() {
               enableInput
               prompt="Krum:~/dev$"
               welcomeMessage={welcomeMessage}
-              defaultHandler={(command, commandArguments) => (
+              defaultHandler={(command: string, commandArguments: string) => (
                 <CommandHandler
                   command={command}
                   commandArguments={commandArguments}
                   setShowWelcomeMessage={setShowWelcomeMessage}
                 />
               )}
-              errorMessage={(command) => `zsh: command not found: ${command}`}
+              errorMessage={(command: string) =>
+                `zsh: command not found: ${command}`
+              }
             />
           )}
         </TerminalContextProvider>

@@ -34,29 +34,32 @@ const CommandHandler = ({
     }
   }, [setBufferedContent, setShowWelcomeMessage])
 
+  const renderHelp = () => (
+    <ul className="list-none p-0">
+      <li className="mb-2">
+        <span className="font-bold text-yellow-200">home</span> - a fresh start
+        (like hitting the reset button on life, but less dramatic)
+      </li>
+      <li className="mb-2">
+        <span className="font-bold text-yellow-200">clear</span> - clears the
+        console (erases the past, but only in the console)
+      </li>
+      <li className="mb-2">
+        <span className="font-bold text-yellow-200">about</span> - info about me
+        (no juicy details)
+      </li>
+      <li className="mb-2">
+        <span className="font-bold text-yellow-200">
+          experience (or just exp)
+        </span>{' '}
+        - my experience (where I&apos;ve been and what I&apos;ve conquered)
+      </li>
+    </ul>
+  )
+
   const commands = {
-    help: () => (
-      <ul className="list-none p-0">
-        <li className="mb-2">
-          <span className="font-bold text-yellow-200">home</span> - a fresh
-          start (like hitting the reset button on life, but less dramatic)
-        </li>
-        <li className="mb-2">
-          <span className="font-bold text-yellow-200">clear</span> - clears the
-          console (erases the past, but only in the console)
-        </li>
-        <li className="mb-2">
-          <span className="font-bold text-yellow-200">about</span> - info about
-          me (no juicy details)
-        </li>
-        <li className="mb-2">
-          <span className="font-bold text-yellow-200">
-            experience (or just exp)
-          </span>{' '}
-          - my experience (where I&apos;ve been and what I&apos;ve conquered)
-        </li>
-      </ul>
-    ),
+    help: renderHelp,
+    '?': renderHelp,
     home: () => {
       setShowWelcomeMessage(true)
       setBufferedContent('')
