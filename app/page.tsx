@@ -11,11 +11,14 @@ import CommandHandler from './components/CommandHandler'
 export default function Page() {
   const [isLoading, setIsLoading] = useState(true)
   const [showWelcomeMessage, setShowWelcomeMessage] = useState(true)
-  const isMobile = useMediaQuery('(max-width: 768px)')
+  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
+    setIsClient(true)
     setIsLoading(false)
   }, [])
+
+  const isMobile = useMediaQuery('(max-width: 768px)')
 
   const welcomeMessage = showWelcomeMessage && (
     <section className="container mx-auto px-4">
@@ -73,6 +76,10 @@ export default function Page() {
     </section>
   )
 
+  if (!isClient) {
+    return null
+  }
+
   return (
     <>
       {!isMobile ? (
@@ -83,16 +90,14 @@ export default function Page() {
               enableInput
               prompt="Krum:~/dev$"
               welcomeMessage={welcomeMessage}
-              defaultHandler={(command: string, commandArguments: string) => (
+              defaultHandler={(command, commandArguments) => (
                 <CommandHandler
                   command={command}
                   commandArguments={commandArguments}
                   setShowWelcomeMessage={setShowWelcomeMessage}
                 />
               )}
-              errorMessage={(command: string) =>
-                `zsh: command not found: ${command}`
-              }
+              errorMessage={(command) => `zsh: command not found: ${command}`}
             />
           )}
         </TerminalContextProvider>
