@@ -73,26 +73,24 @@ export default function Page() {
 
   return (
     <TerminalContextProvider>
-      <div className="terminal">
-        {!isLoading && (
-          <ReactTerminal
-            theme="material-ocean"
-            enableInput
-            prompt="Krum:~/dev$"
-            welcomeMessage={welcomeMessage}
-            defaultHandler={(command: string, commandArguments: string) => (
-              <CommandHandler
-                command={command}
-                commandArguments={commandArguments}
-                setShowWelcomeMessage={setShowWelcomeMessage}
-              />
-            )}
-            errorMessage={(command: string) =>
-              `zsh: command not found: ${command}`
-            }
-          />
-        )}
-      </div>
+      {!isLoading && (
+        <ReactTerminal
+          theme="material-ocean"
+          enableInput
+          prompt="Krum:~/dev$"
+          welcomeMessage={welcomeMessage}
+          defaultHandler={(command: string, commandArguments: string) => (
+            <CommandHandler
+              command={command}
+              commandArguments={commandArguments}
+              setShowWelcomeMessage={setShowWelcomeMessage}
+            />
+          )}
+          errorMessage={(command: string) =>
+            `zsh: command not found: ${command}`
+          }
+        />
+      )}
     </TerminalContextProvider>
   )
 }

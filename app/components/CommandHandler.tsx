@@ -32,26 +32,38 @@ const CommandHandler = ({
         <strong>get cv</strong> - download my CV <br />
       </span>
     ),
-    about: () => (
-      <pre>
-        {JSON.stringify(
-          {
-            name: 'Krum Georgiev',
-            currentPosition: 'Staff Software Engineer at Vercel',
-            languages: 'JavaScript, TypeScript, Erlang, WebAssembly, Swift',
-            frameworks:
-              'React, Next.js, Node.js, Deno, Bun, Remix, Svelte, NestJS',
-            tools: 'GitHub, GitLab, Bitbucket, Docker, CircleCI, AWS, Figma',
-            softSkills:
-              'Agile Method, Teamwork, Communication, Problem-solving',
-            favoriteIDEs: 'VS Code, Zed',
-            city: 'Sofia, Bulgaria',
-          },
-          null,
-          2,
-        )}
-      </pre>
-    ),
+    about: () => {
+      const jsonObject = {
+        name: 'Krum Georgiev',
+        currentPosition: 'Staff Software Engineer at Vercel',
+        languages: 'JavaScript, TypeScript, Erlang, WebAssembly, Swift',
+        frameworks: 'React, Next.js, Node.js, Deno, Bun, Remix, Svelte, NestJS',
+        tools: 'GitHub, GitLab, Bitbucket, Docker, CircleCI, AWS, Figma',
+        softSkills: 'Agile Method, Teamwork, Communication, Problem-solving',
+        favoriteIDEs: 'VS Code, Zed',
+        city: 'Sofia, Bulgaria',
+      }
+
+      const styledJson = (
+        json: { [s: string]: unknown } | ArrayLike<unknown>,
+      ) => {
+        return (
+          <span className="json-container text-sm">
+            {Object.entries(json).map(([key, value], index) => (
+              <div key={key} className="ml-5">
+                <span className="text-cyan-400">&quot;{key}&quot;: </span>
+                <span className="text-yellow-400">
+                  &quot;{String(value)}&quot;
+                </span>
+                {index < Object.entries(json).length - 1 && ','}
+              </div>
+            ))}
+          </span>
+        )
+      }
+
+      return <pre>{styledJson(jsonObject)}</pre>
+    },
     exp: () => (
       <span>
         <p>

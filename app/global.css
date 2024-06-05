@@ -91,17 +91,21 @@ ul li {
   from { opacity: 0; }
   to   { opacity: 1; }
 }
-
+.json-container::before {
+  content: '{';
+  color: #f5f4f1;
+}
+.json-container::after {
+  content: '}';
+  color: #f5f4f1;
+}
+.json-entry::before {
+  content: ' ';
+}
 #terminalEditor {
   font-size: 14px;
   height: 400px;
-}
-
-.terminal {
   width: 700px;
-  font-size: 12px;
-  height: min-content;
-  max-height: max-content;
 }
 
 .prose .anchor {
