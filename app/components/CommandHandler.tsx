@@ -1,4 +1,4 @@
-import React, { useContext, useEffect, useState } from 'react'
+import React, { useContext, useEffect } from 'react'
 
 import { TerminalContext } from 'react-terminal'
 
@@ -14,17 +14,7 @@ const CommandHandler = ({
   setShowWelcomeMessage,
 }: Props) => {
   setShowWelcomeMessage(false)
-  const [downloadTriggered, setDownloadTriggered] = useState(false)
   const { setBufferedContent } = useContext(TerminalContext)
-
-  const downloadCV = () => {
-    const link = document.createElement('a')
-    link.href = '/Profile.pdf'
-    link.download = 'Profile.pdf'
-    document.body.appendChild(link)
-    link.click()
-    document.body.removeChild(link)
-  }
 
   useEffect(() => {
     const handleReset = (event: KeyboardEvent): void => {
@@ -64,10 +54,6 @@ const CommandHandler = ({
             experience (or just exp)
           </span>{' '}
           - my experience (where I&apos;ve been and what I&apos;ve conquered)
-        </li>
-        <li className="mb-2">
-          <span className="font-bold text-yellow-200">get cv</span> - download
-          my CV (your passport to my professional journey)
         </li>
       </ul>
     ),
@@ -164,17 +150,6 @@ const CommandHandler = ({
         return `zsh: cd: ${commandArguments}: Permission denied`
       }
       return `cd: no such file or directory: ${commandArguments}`
-    },
-    get: () => {
-      if (commandArguments === 'cv') {
-        if (!downloadTriggered) {
-          setDownloadTriggered(true)
-          downloadCV()
-          return 'Downloading CV...'
-        }
-        return ''
-      }
-      return `get: invalid argument: ${commandArguments}`
     },
     sudo: () => {
       if (!commandArguments) {
