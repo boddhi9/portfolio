@@ -56,7 +56,7 @@ p {
 }
 
 ol, ul, menu {
-  list-style: disc;
+  list-style: none;
   margin: 0;
   padding: 0;
 }
@@ -72,31 +72,14 @@ a:hover {
 }
 .container {
   max-width: 700px;
-  padding: 16px 40px;
-  border: 3px solid #f5f4f1;
-  border-radius: 2% 6% 5% 4%/1% 1% 2% 4%;
   position: relative;
   margin-bottom: 10px;
-  z-index: 1;
-}
-.container::before {
-  content: "";
-  border: 2px solid #cdcdcd;
-  display: block;
-  width: 100%;
-  height: 100%;
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate3d(-50%, -50%, 0) scale(1.015) rotate(1.0deg);
-  border-radius: 1% 1% 2% 4%/2% 6% 5% 4%;
-  z-index: -1;
 }
 h1, h2 {
   font-size: 14px;
   line-height: 20px;
-  padding: 16px 0;
-  font-weight: 400;
+  padding: 16px 0 0 0;
+  font-weight: 700;
 }
 ul li {
   margin-left: 16px;
@@ -113,13 +96,14 @@ ul li {
 
 #terminalEditor {
   font-size: 14px;
+  height: 400px;
 }
 
 .terminal {
-  max-width: 600px;
-  width: 600px;
-  height: 700px;
+  width: 700px;
   font-size: 12px;
+  height: min-content;
+  max-height: max-content;
 }
 
 .prose .anchor {
