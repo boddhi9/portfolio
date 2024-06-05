@@ -1,4 +1,6 @@
-import React, { useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
+
+import { TerminalContext } from 'react-terminal'
 
 type Props = {
   command: string
@@ -13,6 +15,7 @@ const CommandHandler = ({
 }: Props) => {
   setShowWelcomeMessage(false)
   const [downloadTriggered, setDownloadTriggered] = useState(false)
+  const { setBufferedContent } = useContext(TerminalContext)
 
   const downloadCV = () => {
     const link = document.createElement('a')
@@ -23,15 +26,55 @@ const CommandHandler = ({
     document.body.removeChild(link)
   }
 
+  useEffect(() => {
+    const handleReset = (event: KeyboardEvent): void => {
+      if (
+        ((event.metaKey || event.ctrlKey) && event.key === 'k') ||
+        event.key === 'Escape'
+      ) {
+        setShowWelcomeMessage(false)
+        setBufferedContent('')
+        event.preventDefault()
+      }
+    }
+    document.addEventListener('keydown', handleReset)
+
+    return () => {
+      document.removeEventListener('keydown', handleReset)
+    }
+  }, [setBufferedContent, setShowWelcomeMessage])
+
   const commands = {
     help: () => (
-      <span>
-        <strong>clear</strong> - clears the console <br />
-        <strong>about</strong> - info about me <br />
-        <strong>experience (or just exp)</strong> - my experience <br />
-        <strong>get cv</strong> - download my CV <br />
-      </span>
+      <ul className="list-none p-0">
+        <li className="mb-2">
+          <span className="font-bold text-yellow-200">home</span> - a fresh
+          start (like hitting the reset button on life, but less dramatic)
+        </li>
+        <li className="mb-2">
+          <span className="font-bold text-yellow-200">clear</span> - clears the
+          console (erases the past, but only in the console)
+        </li>
+        <li className="mb-2">
+          <span className="font-bold text-yellow-200">about</span> - info about
+          me (no juicy details)
+        </li>
+        <li className="mb-2">
+          <span className="font-bold text-yellow-200">
+            experience (or just exp)
+          </span>{' '}
+          - my experience (where I&apos;ve been and what I&apos;ve conquered)
+        </li>
+        <li className="mb-2">
+          <span className="font-bold text-yellow-200">get cv</span> - download
+          my CV (your passport to my professional journey)
+        </li>
+      </ul>
     ),
+    home: () => {
+      setShowWelcomeMessage(true)
+      setBufferedContent('')
+    },
     about: () => {
       const jsonObject = {
         name: 'Krum Georgiev',
