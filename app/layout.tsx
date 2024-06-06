@@ -5,10 +5,10 @@ import './global.css'
 export const metadata: Metadata = {
   metadataBase: new URL('https://krumgeorgiev.com'),
   title: {
-    default: 'Krum Georgiev - Developer and creator of things',
+    default: "Krum's Portfolio",
     template: '%s | Krum Georgiev',
   },
-  description: 'Developer and creator of things.',
+  description: 'Developer and creator of things',
   robots: {
     index: true,
     follow: true,
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
   },
 }
 
-const cx = (...classes) => classes.filter(Boolean).join(' ')
+const cx = (...classes: string[]) => classes.filter(Boolean).join(' ')
 
 export default function RootLayout({
   children,
@@ -39,7 +39,7 @@ export default function RootLayout({
       className={cx('text-black bg-white dark:text-white dark:bg-[#111010]')}
     >
       <head />
-      <body className="antialiased">
+      <body>
         <main className="font-chivo">
           {children}
           <Analytics />

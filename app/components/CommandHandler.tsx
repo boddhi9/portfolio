@@ -13,46 +13,56 @@ const CommandHandler = ({
   commandArguments,
   setShowWelcomeMessage,
 }: Props) => {
-  setShowWelcomeMessage(false)
   const { setBufferedContent } = useContext(TerminalContext)
 
   useEffect(() => {
-    const handleReset = (event: KeyboardEvent): void => {
-      if (
-        ((event.metaKey || event.ctrlKey) && event.key === 'k') ||
-        event.key === 'Escape'
-      ) {
+    setShowWelcomeMessage(false)
+  }, [])
+
+  useEffect(() => {
+    if (command === 'home') {
+      setShowWelcomeMessage(true)
+      setBufferedContent('')
+    }
+  }, [command, setBufferedContent, setShowWelcomeMessage])
+
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent): void => {
+      if ((event.metaKey || event.ctrlKey) && event.key === 'k') {
         setShowWelcomeMessage(false)
+        setBufferedContent('')
+        event.preventDefault()
+      } else if (event.key === 'Escape') {
+        setShowWelcomeMessage(true)
         setBufferedContent('')
         event.preventDefault()
       }
     }
-    document.addEventListener('keydown', handleReset)
 
+    document.addEventListener('keydown', handleKeyDown)
     return () => {
-      document.removeEventListener('keydown', handleReset)
+      document.removeEventListener('keydown', handleKeyDown)
     }
   }, [setBufferedContent, setShowWelcomeMessage])
 
   const renderHelp = () => (
     <ul className="list-none p-0">
       <li className="mb-2">
-        <span className="font-bold text-yellow-200">home</span> - a fresh start
-        (like hitting the reset button on life, but less dramatic)
+        <span className="font-bold text-cyan-400">home</span> - a fresh start
+        <span className="text-gray-400"> (also hit Esc)</span>
       </li>
       <li className="mb-2">
-        <span className="font-bold text-yellow-200">clear</span> - clears the
-        console (erases the past, but only in the console)
+        <span className="font-bold text-cyan-400">clear</span> - clears the
+        console
+        <span className="text-gray-400"> (hitting Cmd+K)</span>
       </li>
       <li className="mb-2">
-        <span className="font-bold text-yellow-200">about</span> - info about me
+        <span className="font-bold text-cyan-400">about</span> - info about me
         (no juicy details)
       </li>
       <li className="mb-2">
-        <span className="font-bold text-yellow-200">
-          experience (or just exp)
-        </span>{' '}
-        - my experience (where I&apos;ve been and what I&apos;ve conquered)
+        <span className="font-bold text-cyan-400">experience</span> - my
+        experience (where I&apos;ve been and what I&apos;ve conquered)
       </li>
     </ul>
   )
@@ -96,7 +106,7 @@ const CommandHandler = ({
 
       return <pre>{styledJson(jsonObject)}</pre>
     },
-    exp: () => (
+    experience: () => (
       <span>
         <p>
           Ever since I was a kid, software development has been my passion. From

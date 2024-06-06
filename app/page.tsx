@@ -77,8 +77,8 @@ export default function Page() {
         <footer>
           <h2 className="text-md font-semibold">
             Type &quot;help&quot; or &quot;?&quot; for all available commands.
-            Try &quot;about&quot; to learn more about me and &quot;exp&quot; to
-            see my experience.
+            Try &quot;about&quot; to learn more about me and
+            &quot;experience&quot; to see my experience.
           </h2>
         </footer>
       )}

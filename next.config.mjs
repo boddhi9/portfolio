@@ -2,6 +2,7 @@ const nextConfig = {
   experimental: {
     ppr: true,
   },
+  reactStrictMode: false,
   logging: {
     fetches: {
       fullUrl: true,
