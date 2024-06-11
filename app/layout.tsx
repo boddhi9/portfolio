@@ -1,4 +1,5 @@
 import { Analytics } from '@vercel/analytics/react'
+import { SpeedInsights } from '@vercel/speed-insights/next'
 import { Metadata } from 'next'
 import './global.css'
 
@@ -43,6 +44,7 @@ export default function RootLayout({
         <main className="font-chivo">
           {children}
           <Analytics />
+          <SpeedInsights />
         </main>
       </body>
     </html>
