@@ -45,26 +45,37 @@ export default function Page() {
         <ul className="list-disc pl-5">
           <li>
             Senior Software Engineer at Patient21{' '}
-            <span className="text-blue-200">[Jan 2021 - May 2024]</span>
+            <span className="text-blue-200 whitespace-nowrap">
+              [Jan 2021 - May 2024]
+            </span>
           </li>
           <li>
             Principal Engineer at Facebook{' '}
-            <span className="text-blue-200">[Jan 2020 - Jan 2021]</span>
+            <span className="text-blue-200 whitespace-nowrap">
+              [Jan 2020 - Jan 2021]
+            </span>
           </li>
           <li>
             Senior Front End Engineer at Bosch{' '}
-            <span className="text-blue-200">[Apr 2018 - Jan 2020]</span>
+            <span className="text-blue-200 whitespace-nowrap">
+              [Apr 2018 - Jan 2020]
+            </span>
           </li>
           <li>
             Development Lead at Adobe{' '}
-            <span className="text-blue-200">[Sep 2016 - Mar 2018]</span>
+            <span className="text-blue-200 whitespace-nowrap">
+              [Sep 2016 - Mar 2018]
+            </span>
           </li>
           <li>
             Senior Software Engineer at Ontotext{' '}
-            <span className="text-blue-200">[Aug 2007 - Sep 2016]</span>
+            <span className="text-blue-200 whitespace-nowrap">
+              [Aug 2007 - Sep 2016]
+            </span>
           </li>
         </ul>
       </section>
+
       <section>
         <h2 className="text-md font-semibold">Connect with me:</h2>
         <ul className="list-none flex items-center space-x-4">
