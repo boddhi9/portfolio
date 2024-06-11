@@ -7,6 +7,7 @@ import { ReactTerminal, TerminalContextProvider } from 'react-terminal'
 import useMediaQuery from '@custom-react-hooks/use-media-query'
 
 import CommandHandler from './components/CommandHandler'
+import EmailLink from './components/EmailLink'
 
 export default function Page() {
   const [isLoading, setIsLoading] = useState(true)
@@ -32,53 +33,77 @@ export default function Page() {
             <li className="text-md">Stuck in Vim</li>
           </ul>
         ) : (
-          <p className="text-md">
+          <div className="text-md">
             Tech enthusiast | Staff Engineer at Vercel | TC39 member | Stuck in
             Vim
-          </p>
+            <hr className="my-2 border-t-2 border-gray-300" />
+          </div>
         )}
       </header>
       <section>
         <h2 className="text-md font-semibold">Previously:</h2>
         <ul className="list-disc pl-5">
-          <li>Senior Software Engineer at Patient21 (Jan 2021 - May 2024)</li>
-          <li>Principal Engineer at Facebook (Jan 2020 - Jan 2021)</li>
-          <li>Senior Front End Engineer at Bosch (Apr 2018 - Jan 2020)</li>
-          <li>Development Lead at Adobe (Sep 2016 - Mar 2018)</li>
-          <li>Senior Software Engineer at Ontotext (Aug 2007 - Sep 2016)</li>
+          <li>
+            Senior Software Engineer at Patient21{' '}
+            <span className="text-gray-500">(Jan 2021 - May 2024)</span>
+          </li>
+          <li>
+            Principal Engineer at Facebook{' '}
+            <span className="text-gray-500">(Jan 2020 - Jan 2021)</span>
+          </li>
+          <li>
+            Senior Front End Engineer at Bosch{' '}
+            <span className="text-gray-500">(Apr 2018 - Jan 2020)</span>
+          </li>
+          <li>
+            Development Lead at Adobe{' '}
+            <span className="text-gray-500">(Sep 2016 - Mar 2018)</span>
+          </li>
+          <li>
+            Senior Software Engineer at Ontotext{' '}
+            <span className="text-gray-500">(Aug 2007 - Sep 2016)</span>
+          </li>
         </ul>
       </section>
       <section>
-        <h2 className="text-md font-semibold">More:</h2>
-        <ul className="list-disc pl-5">
+        <h2 className="text-md font-semibold">Connect with me:</h2>
+        <ul className="list-none flex items-center space-x-4">
           <li>
             <a
               href="https://linkedin.com/in/krumgeorgiev"
-              className="text-blue-500 underline"
+              className="text-blue-500 hover:text-blue-300"
               target="_blank"
               rel="noopener noreferrer"
             >
               LinkedIn
             </a>
           </li>
+          <li className="delimiter">|</li>
           <li>
             <a
               href="/Profile.pdf"
-              className="text-gray-500 underline"
+              className="text-blue-500 hover:text-blue-300"
               target="_blank"
               rel="noopener noreferrer"
             >
-              Resume
+              CV
             </a>
+          </li>
+          <li className="delimiter">|</li>
+          <li>
+            <EmailLink user="contact" domain="krumgeorgiev" tld="com">
+              Email
+            </EmailLink>
           </li>
         </ul>
       </section>
+
       {!isMobile && (
         <footer>
           <h2 className="text-md font-semibold">
-            Type &quot;help&quot; or &quot;?&quot; for all available commands.
-            Try &quot;about&quot; to learn more about me and
-            &quot;experience&quot; to see my experience.
+            Type &quot;help&quot; or &quot;?&quot; to discover all available
+            commands. Want to know more about me? Try &quot;about.&quot; Curious
+            about my experience? Type &quot;exp.&quot;
           </h2>
         </footer>
       )}

@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from 'react'
+import React, { useCallback, useContext, useEffect } from 'react'
 
 import { TerminalContext } from 'react-terminal'
 
@@ -15,52 +15,48 @@ const CommandHandler = ({
 }: Props) => {
   const { setBufferedContent } = useContext(TerminalContext)
 
-  useEffect(() => {
-    setShowWelcomeMessage(false)
-  }, [])
+  const handleClear = useCallback(
+    (event?: KeyboardEvent) => {
+      setShowWelcomeMessage(!event || event.key === 'Escape' ? true : false)
+      setBufferedContent('')
+    },
+    [setShowWelcomeMessage, setBufferedContent],
+  )
 
   useEffect(() => {
-    if (command === 'home') {
-      setShowWelcomeMessage(true)
-      setBufferedContent('')
-    }
-  }, [command, setBufferedContent, setShowWelcomeMessage])
+    if (command === 'home') handleClear()
+    else setShowWelcomeMessage(false)
+  }, [command, handleClear, setShowWelcomeMessage])
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent): void => {
-      if ((event.metaKey || event.ctrlKey) && event.key === 'k') {
-        setShowWelcomeMessage(false)
-        setBufferedContent('')
-        event.preventDefault()
-      } else if (event.key === 'Escape') {
-        setShowWelcomeMessage(true)
-        setBufferedContent('')
-        event.preventDefault()
+      if (
+        ((event.metaKey || event.ctrlKey) && event.key === 'k') ||
+        event.key === 'Escape'
+      ) {
+        handleClear(event)
       }
     }
 
     document.addEventListener('keydown', handleKeyDown)
-    return () => {
-      document.removeEventListener('keydown', handleKeyDown)
-    }
-  }, [setBufferedContent, setShowWelcomeMessage])
+  }, [handleClear])
 
   const renderHelp = () => (
     <ul className="list-none p-0">
-      <li className="mb-2">
+      <li className="mb-1">
         <span className="font-bold text-cyan-400">home</span> - a fresh start
         <span className="text-gray-400"> (also hit Esc)</span>
       </li>
-      <li className="mb-2">
+      <li className="mb-1">
         <span className="font-bold text-cyan-400">clear</span> - clears the
         console
         <span className="text-gray-400"> (hitting Cmd+K)</span>
       </li>
-      <li className="mb-2">
+      <li className="mb-1">
         <span className="font-bold text-cyan-400">about</span> - info about me
         (no juicy details)
       </li>
-      <li className="mb-2">
+      <li className="mb-1">
         <span className="font-bold text-cyan-400">experience</span> - my
         experience (where I&apos;ve been and what I&apos;ve conquered)
       </li>
@@ -70,10 +66,6 @@ const CommandHandler = ({
   const commands = {
     help: renderHelp,
     '?': renderHelp,
-    home: () => {
-      setShowWelcomeMessage(true)
-      setBufferedContent('')
-    },
     about: () => {
       const jsonObject = {
         name: 'Krum Georgiev',
@@ -106,7 +98,7 @@ const CommandHandler = ({
 
       return <pre>{styledJson(jsonObject)}</pre>
     },
-    experience: () => (
+    exp: () => (
       <span>
         <p>
           Ever since I was a kid, software development has been my passion. From
