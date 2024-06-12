@@ -57,8 +57,8 @@ const CommandHandler = ({
         (no juicy details)
       </li>
       <li className="mb-1">
-        <span className="font-bold text-cyan-400">experience</span> - my
-        experience (where I&apos;ve been and what I&apos;ve conquered)
+        <span className="font-bold text-cyan-400">exp</span> - my experience
+        (where I&apos;ve been and what I&apos;ve conquered)
       </li>
     </ul>
   )
