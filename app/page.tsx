@@ -29,13 +29,11 @@ export default function Page() {
           <ul className="list-disc pl-5">
             <li className="text-md">Tech enthusiast</li>
             <li className="text-md">Staff Engineer at Vercel</li>
-            <li className="text-md">TC39 member</li>
             <li className="text-md">Stuck in Vim</li>
           </ul>
         ) : (
           <div className="text-md">
-            Tech enthusiast | Staff Engineer at Vercel | TC39 member | Stuck in
-            Vim
+            Tech enthusiast | Staff Engineer at Vercel | Stuck in Vim
             <hr className="my-2 border-t-2 border-gray-300" />
           </div>
         )}
@@ -113,8 +111,8 @@ export default function Page() {
         <footer>
           <h2 className="text-md font-semibold">
             Type &quot;help&quot; or &quot;?&quot; to discover all available
-            commands. Want to know more about me? Try &quot;about.&quot; Curious
-            about my experience? Type &quot;exp.&quot;
+            commands. Want to know more about me? Try &quot;about&quot; Curious
+            about my experience? Type &quot;exp&quot;
           </h2>
         </footer>
       )}
