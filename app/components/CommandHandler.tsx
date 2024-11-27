@@ -69,7 +69,7 @@ const CommandHandler = ({
     about: () => {
       const jsonObject = {
         name: 'Krum Georgiev',
-        currentPosition: 'Staff Software Engineer at Vercel',
+        currentPosition: 'Principal Engineer at Vercel',
         languages: 'JavaScript, TypeScript, Erlang, WebAssembly, Swift',
         frameworks: 'React, Next.js, Node.js, Deno, Bun, Remix, Svelte, NestJS',
         tools: 'GitHub, GitLab, Bitbucket, Docker, CircleCI, AWS, Figma',

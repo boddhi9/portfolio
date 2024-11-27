@@ -28,12 +28,12 @@ export default function Page() {
         {isMobile ? (
           <ul className="list-disc pl-5">
             <li className="text-md">Tech enthusiast</li>
-            <li className="text-md">Staff Engineer at Vercel</li>
+            <li className="text-md">Principal Engineer at Vercel</li>
             <li className="text-md">Stuck in Vim</li>
           </ul>
         ) : (
           <div className="text-md">
-            Tech enthusiast | Staff Engineer at Vercel | Stuck in Vim
+            Tech enthusiast | Principal Engineer at Vercel | Stuck in Vim
             <hr className="my-2 border-t-2 border-gray-300" />
           </div>
         )}
